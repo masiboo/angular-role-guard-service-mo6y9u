@@ -1,0 +1,17 @@
+
+<tr *ngFor='let tools of toolSeries; let  rowIndex = index' height="50px">
+  <td class="tableEntryText">{{tools.Series}}</td>
+  <td class="tableEntryText">
+    
+
+<select class="noBorder additionalSelectStyle" name="filter_for" [(ngModel)]="selectedSerial">
+  <option value="" disabled>Select a  serial</option>
+  <option *ngFor = 'let serial of tools?.Serials; let i = index' [value]="i">
+    {{serial}}
+</option>
+</select>
+  </td>
+  <td class="tableEntryText">
+      <label class="labelAdjust">{{(tools?.State[selectedSerial]) ||  ''}} </label>
+  </td>
+</tr>
